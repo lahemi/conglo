@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PasteCan</title>
+    <link rel="stylesheet" type="text/css" href="/styles/st.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/paste.css" />
+    <script src="/javascript/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div class="centeredcontent">
+        <div class="page" id="page1">
+            <p class="langChoice" id="rawlang">Raw</p>
+            <p class="langChoice" id="golang">Go</p>
+            <p class="langChoice" id="lualang">Lua</p>
+            <p><a href="/" class="home">HOME</a></p>
+        </div>
+    </div>
+
+    <div class="page" id="page2">
+        <form action="/pastecan/save" method="POST">
+            <div class="top-panel">
+                <input type="submit" value="Save" class="dosubs">
+                <input type="hidden" name="lang" id="hiddenlang" value="">
+            </div>
+            <textarea name="pastebody"></textarea>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+
+        var currentPage = 1;
+        var chosenLang  = "";
+
+        function modifyVisibility() {
+            $(".page").css("display", "none");
+            $("#page" + Number(currentPage)).css("display", "block");
+        };
+
+        function actionLang() {
+            var langs = {
+                "rawlang": "",
+                "golang":  "go",
+                "lualang": "lua",
+            };
+            $("#hiddenlang").val(langs[chosenLang]);
+            $("#page2 > form").find(".top-panel").append(chosenLang);
+            var h = $(document).height();
+            $("#page2 > form > textarea").css("height", Math.round(h/100.0*92));
+        };
+
+        $(document).ready(function(){
+            modifyVisibility();
+
+            $(".langChoice").click(function(){
+                chosenLang = $(this).attr("id");
+                currentPage++;
+                modifyVisibility();
+                actionLang();
+            });
+        });
+
+    </script>
+</body>
+</html>

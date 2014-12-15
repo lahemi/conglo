@@ -1,0 +1,5 @@
+body { background: #000; color: #ccc; }
+.comment { color: #808080; }
+.string { color: #009999; }
+.keyword { color: #808000; }
+.builtin { color: #669900; }

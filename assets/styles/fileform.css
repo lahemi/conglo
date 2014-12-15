@@ -1,0 +1,45 @@
+.file-wrapper {
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+.file-wrapper .upbutton {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 140%;
+    padding: 0;
+    color: #CCC;
+}
+.file-wrapper input {
+    cursor: pointer;
+    height: 100%;
+    font-size: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+}
+
+#sizelimit {
+    font-size: 60%;
+    margin-bottom: 4px;
+    color: #AAA;
+}
+
+#submit {
+    background: none;
+    color: #CCC;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+#submit:hover {
+    color: #2E8B57;
+}

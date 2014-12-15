@@ -1,0 +1,23 @@
+form {
+    min-width: 150px;
+}
+input {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    border-bottom: 1px solid #000;
+    border-radius: 2px;
+    min-height: 35px;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    background-color: #FFF;
+    pointer: text;
+    font-size: 110%;
+    font-family: VGA, Courier, "Droid Sans Mono", "Courier New", monospace;
+}
+input[type=submit] {
+    text-transform: uppercase;
+    border: 0px;
+    cursor: pointer;
+}

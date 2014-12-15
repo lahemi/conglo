@@ -1,0 +1,96 @@
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <title>The Artist</title>
+    <link rel="stylesheet" type="text/css" href="/styles/theartist.css">
+     <script src="/javascript/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div class="page" id="page1">
+        <img src="/images/theartist/theartist.png" alt="The Artist" class="fullpage">
+    </div>
+    <div class="page" id="page2">
+        <img src="/images/theartist/michel_hazanavicius.jpg" alt="Michel Hazanavicius" class="fullpage">
+        <div class="imagetext">
+            <p>Michel Hazanavicius</p>
+        </div>
+    </div>
+    <div class="page" id="page3">
+        <img src="/images/theartist/jean_dujardin.jpg" alt="Jean Dujardin" class="fullpage">
+        <div class="imagetext">
+            <p>Jean Dujardin</p>
+        </div>
+    </div>
+    <div class="page" id="page4">
+        <img src="/images/theartist/berenice_bejo.jpg" alt="Berenice Bejo" class="fullpage">
+        <div class="imagetext">
+            <p>Bérénice Bejo</p>
+        </div>
+    </div>
+    <div class="page" id="page5">
+        <img src="/images/theartist/john_goodman.jpg" alt="John Goodman" class="fullpage">
+        <div class="imagetext">
+            <p>John Goodman</p>
+        </div>
+    </div>
+    <div class="page" id="page6">
+        <img src="/images/theartist/normalcaption.png" alt="Normal Caption" class="fullpage">
+    </div>
+    <div class="page" id="page7">
+        <img src="/images/theartist/someta.png" alt="Such meta movie" class="fullpage">
+    </div>
+    <div class="page" id="page8" class="fullpage">
+         <embed style="min-width:100%;min-height:100%;" src="http://www.youtube.com/v/O8K9AZcSQJE">
+    </div>
+
+    <script type="text/javascript">
+
+        var currentPage = 1;
+        var maxPage     = $("div[id^=page]").length; // Such magick.
+
+        function modifyVisibility() {
+            $(".page").css("display", "none");
+            $("#page" + Number(currentPage)).css("display", "block");
+        };
+
+        function changePage(direction) {
+            switch(direction) {
+            case "next":
+                if (currentPage < maxPage) {
+                    currentPage++;
+                    modifyVisibility();
+                }
+                break;
+            case "prev":
+                if (currentPage > 1) {
+                    currentPage--;
+                    modifyVisibility();
+                }
+                break;
+            };
+        };
+
+        $(document).ready(function(){
+            modifyVisibility();
+
+            var leftKey  = 37;
+            var upKey    = 38;
+            var rightKey = 39;
+            var downKey  = 40;
+
+            $("body").keydown(function(ev) {
+                switch (ev.which) {
+                case rightKey:
+                    changePage("next"); break;
+                case leftKey:
+                    changePage("prev"); break;
+                case upKey:
+                    loc = document.location.href;
+                    document.location.href = loc.replace(/[a-z]+\/?$/,"");
+                };
+            });
+        });
+
+    </script>
+</body>
+</html>

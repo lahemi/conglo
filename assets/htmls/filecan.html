@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <title>File upload</title>
+    <link rel="stylesheet" type="text/css" href="/styles/st.css">
+    <link rel="stylesheet" type="text/css" href="/styles/fileform.css">
+    <script src="/javascript/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div class="centeredcontent">
+        <form action="/filecan/save" method="POST" enctype="multipart/form-data" class="uploadMagicks" id="upform">
+            <div class="file-wrapper">
+                <input type="file" name="file" id="file" />
+                <div class="upbutton">UPLOAD FILE</div>
+            </div>
+            <p><button type="submit" id="submit">SUBMIT</button></p>
+        </form>
+        <p id="sizelimit">File size limit: 320Kb</p>
+        <p><a href="/" class="home">HOME</a></p>
+    </div>
+</body>
+</html>
